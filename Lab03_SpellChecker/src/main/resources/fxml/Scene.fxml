@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="523.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.spellchecker.FXMLController">
    <top>
       <Label text="Lab03_SpellChecker" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -13,4 +17,56 @@
          </BorderPane.margin>
       </Label>
    </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Scegli la Lingua">
+                     <HBox.margin>
+                        <Insets left="20.0" right="50.0" />
+                     </HBox.margin></Label>
+                  <ComboBox fx:id="boxLingua" prefWidth="150.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <TextArea fx:id="txtDaCorreggere" prefHeight="200.0" prefWidth="200.0" promptText="inserisci una frase nella lingua selezionata,la correggerò" />
+            <Button fx:id="btnCorreggi" minWidth="60.0" mnemonicParsing="false" onAction="#doCorreggi" text="Correggi Testo">
+               <VBox.margin>
+                  <Insets left="250.0" right="20.0" top="20.0" />
+               </VBox.margin></Button>
+            <Label text="Parole Errate">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="20.0" />
+               </padding></Label>
+            <TextArea fx:id="txtCorretto" prefHeight="200.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></TextArea>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="lblErrori" text="Numero di Errori">
+                     <padding>
+                        <Insets left="20.0" right="150.0" />
+                     </padding></Label>
+                  <Button fx:id="btnPulisci" mnemonicParsing="false" onAction="#doPulisci" text="Pulisci Testo" />
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <Label fx:id="lblStato" text="Stato del Sistema di Traduzione" BorderPane.alignment="TOP_LEFT">
+         <padding>
+            <Insets bottom="20.0" left="20.0" top="20.0" />
+         </padding></Label>
+   </bottom>
 </BorderPane>
